@@ -31,8 +31,7 @@ const providerETH = new ethers.JsonRpcProvider(ALCHEMY_MAINNET_URL);
 ```
 
 - **Step2**: Create a read-only Contract instance.
-To create a read-only Contract instance, you need to fill in 3 parameters, namely the contract address, contract abi and provider variable.<br>
-ABI (Application Binary Interface) is the standard for interacting with Ethereum smart contracts, ethers supports two abi filling methods:<br>
+To create a read-only Contract instance, you need to fill in 3 parameters, namely the contract address, contract abi and provider variable. ABI (Application Binary Interface) is the standard for interacting with Ethereum smart contracts, ethers supports two abi filling methods:<br><br>
 **Method 1**. Directly input the contract abi. You can copy it from the compilation page of remix, get it from the json file in the artifact folder generated when compiling the contract locally,
 or get it from the code page of the etherscan open source contract. We use this method to create a WETH contract instance:<br><br>
 ![]()<br><br>
@@ -44,7 +43,7 @@ const abiWETH = '[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":
 const addressWETH = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';      // WETH Contract
 const contractWETH = new ethers.Contract(addressWETH, abiWETH, providerETH);
 ```
-<br><br><br>
+<br><br>
 **Method 2**. Since the readability of abi is too poor, ethers innovatively introduced Human-Readable Abi. Developers can write abi through function signature and event signature. We use this method to create a contract instance of the stablecoin DAI:
 ```
 // The second way to input abi: input the functions needed by the program, separated by commas, ethers will automatically convert them into the corresponding abi for you
@@ -90,3 +89,6 @@ const main = async () => {
 
 main()
 ```
+
+Reading the DAI contract information, we can see that the contract instances created by both methods can successfully interact with the chain. The WETH and DAI in Vitalik's wallet are shown in the figure below.<br><br>
+![]()<br><br>

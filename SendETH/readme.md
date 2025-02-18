@@ -114,7 +114,7 @@ console.log(`Wallet 3 address: ${address3}`);
 console.log(`Are the addresses of wallet 1 and wallet 3 the same: ${address1 === address3}`);
 ```
 
-![]()<br><br>
+![getWalletAddress](https://github.com/wls503pl/Ethers/blob/main/SendETH/img/getWalletAddress.png)<br><br>
 
 4. Get mnemonic phrase
 Use the **mnemonic.phrase** member of the wallet object to get the mnemonic phrase:
@@ -123,7 +123,7 @@ Use the **mnemonic.phrase** member of the wallet object to get the mnemonic phra
 console.log(`Wallet1 mnemonic: ${wallet1.mnemonic.phrase}`)
 ```
 
-![]()<br><br>
+![getMnemonic](https://github.com/wls503pl/Ethers/blob/main/SendETH/img/getMnemonic.png)<br><br>
 
 5. Get the private key
 Use the privateKey member of the wallet object to obtain the private key:
@@ -132,7 +132,7 @@ Use the privateKey member of the wallet object to obtain the private key:
 console.log(`Wallet2 private key: ${wallet2.privateKey}`)
 ```
 
-![]()<br><br>
+![getPrivateKey](https://github.com/wls503pl/Ethers/blob/main/SendETH/img/getPrivateKey.png)<br><br>
 
 6. Get the number of wallet interactions on the chain
 Use the ***getTransactionCount()*** function to obtain the number of wallet interactions on the chain
@@ -144,7 +144,7 @@ console.log(`Number of transactions sent by wallet 1: ${txCount1}`)
 console.log(`Number of transactions sent by wallet 2: ${txCount2}`)
 ```
 
-![]()<br><br>
+![getTransactionNumberOnChain](https://github.com/wls503pl/Ethers/blob/main/SendETH/img/getTransactionNumberOnChain.png)<br><br>
 
 7. Send ETH
 Use wallet2 to send 0.001 ETH to wallet1, and print the wallet balance before and after the transaction. Since wallet1 is a newly created random private key wallet, the balance before the transaction is 0, and the balance after the transaction is 0.001 ETH.
@@ -178,6 +178,9 @@ console.log(`Wallet1: ${ethers.formatEther(await provider.getBalance(wallet1With
 console.log(`Wallet2: ${ethers.formatEther(await provider.getBalance(wallet2))} ETH`)
 ```
 
-<br>
+<hr>
 
-![]()
+# At Last
+I can't get enough ETH on Test Net, so the result of the transaction is as follows:<br>
+
+![notEnoughFunds](https://github.com/wls503pl/Ethers/blob/main/SendETH/img/notEnoughFunds.png)

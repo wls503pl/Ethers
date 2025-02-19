@@ -92,7 +92,32 @@ console.log("\n1. Read WETH balance")
 const balanceWETH = await contractWETH.balanceOf(address)
 console.log(`WETH holdings before deposit: ${ethers.formatEther(balanceWETH)}\n`)
 ```
-<br>
-![]()<br>
 
-4. 
+4. Call the ***deposit()*** function of the WETH contract to convert 0.001 ETH into 0.001 WETH and print the transaction details and balance. The ***deposit()*** function has no parameters and you can see that the balance becomes 1.002997.
+
+```
+console.log("\n2. Call deposit() function, deposit 0.001 ETH")
+// Initiate a transaction
+const tx = await contractWETH.deposit({value: ethers.parseEther("0.001")})
+// Waiting for the transaction to be uploaded
+await tx.wait()
+console.log(`Transaction Details:`)
+console.log(tx)
+const balanceWETH_deposit = await contractWETH.balanceOf(address)
+console.log(`WETH holdings after deposit: ${ethers.formatEther(balanceWETH_deposit)}\n`)
+```
+
+5. Call the ***transfer()*** function of the WETH contract to transfer 0.001 WETH to Vitalik and print the balance. You can see that the balance becomes 1.001997
+
+```
+console.log("\n3. Call transfer() function to transfer 0.001 WETH to vitalik")
+// Initiate a transaction
+const tx2 = await contractWETH.transfer("vitalik.eth", ethers.parseEther("0.001"))
+// Waiting for the transaction to be uploaded
+await tx2.wait()
+const balanceWETH_transfer = await contractWETH.balanceOf(address)
+console.log(`WETH holdings after transfer: ${ethers.formatEther(balanceWETH_transfer)}\n`)
+```
+
+# Summary
+In this lecture, we introduced how to declare a writable Contract variable and use it to interact with the WETH contract of the test network. We not only called the deposit() function of WETH, but also converted 0.001 ETH into WETH and transferred it to Vitalik.

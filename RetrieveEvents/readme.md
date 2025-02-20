@@ -68,6 +68,7 @@ const transferEvents = await contract.queryFilter('Transfer', block - 10, block)
 console.log(transferEvents[0])
 ```
 <br>
+
 ![1stTransferEvent](https://github.com/wls503pl/Ethers/blob/main/RetrieveEvents/img/1stTransferEvent.png)<br>
 
 5. Read the parsed result of the event.

@@ -59,6 +59,7 @@ contractUSDT.once('Transfer', (from, to, value) => {
 })
 ```
 <br>
+
 ![listeningOnce](https://github.com/wls503pl/Ethers/blob/main/MonitorContractEvents/img/listeningOnce.png)<br>
 
 4. Use the ***contract.on()*** function to continuously monitor the Transfer event and print the result.
@@ -73,4 +74,5 @@ contractUSDT.on('Transfer', (from, to, value) => {
 })
 ```
 <br>
+
 ![continuouslyListening](https://github.com/wls503pl/Ethers/blob/main/MonitorContractEvents/img/continuouslyListening.png)

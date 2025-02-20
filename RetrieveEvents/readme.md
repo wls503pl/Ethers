@@ -67,8 +67,6 @@ const transferEvents = await contract.queryFilter('Transfer', block - 10, block)
 // print the 1st Transfer Event
 console.log(transferEvents[0])
 ```
-<br>
-![]()<br>
 
 5. Read the parsed result of the event.
 ```
@@ -77,8 +75,6 @@ console.log("\n2. Parse Event：")
 const amount = ethers.formatUnits(ethers.getBigInt(transferEvents[0].args["amount"]), "ether")
 console.log(`address ${transferEvents[0].args["from"]} transfer${amount} WETH to address ${transferEvents[0].args["to"]}`)
 ```
-<br>
-![]()<br>
 
 ## Summarize
 

@@ -35,3 +35,29 @@ contract.filters.Transfer(myAddress, otherAddress)
 ```
 contract.filters.Transfer(null, [myAddress, otherAddress])
 ```
+
+# Monitor USDT transfers on exchanges
+
+1. USDT transfers from Binance
+
+Before monitoring the USDT contract, we need to understand the transaction **logs**, including the **topics** and **data** of the event. Let's firstly find a transaction that transfers USDT from Binance Exchange, and then check its details on etherscan through hash:
+Transaction Hash: [0xab1f7b575600c4517a2e479e46e3af98a95ee84dd3f46824e02ff4618523fff5](https://etherscan.io/tx/0xab1f7b575600c4517a2e479e46e3af98a95ee84dd3f46824e02ff4618523fff5)
+<br>
+![]()<br>
+
+This transaction did one thing: transferred 2983.98 USDT from **binance14** (Binance hot wallet) to address 0x354de44bedba213d612e92d3248b899de17b0c58.
+
+View the event log information:
+<br>
+![]()<br>
+
+- **address**: USDT contract address
+- **topics[0]**: Event hash, keccak256("Transfer(address, address, uint256)")
+- **topics[1]**: Transfer out address (Binance exchange hot wallet)
+- **topics[2]**: Transfer in address
+- **data**: Transfer amount
+
+2. Create **provider**, **abi**, **USDT** contract variable:
+
+```
+```

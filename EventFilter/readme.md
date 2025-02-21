@@ -43,13 +43,14 @@ contract.filters.Transfer(null, [myAddress, otherAddress])
 Before monitoring the USDT contract, we need to understand the transaction **logs**, including the **topics** and **data** of the event. Let's firstly find a transaction that transfers USDT from Binance Exchange, and then check its details on etherscan through hash:
 Transaction Hash: [0xab1f7b575600c4517a2e479e46e3af98a95ee84dd3f46824e02ff4618523fff5](https://etherscan.io/tx/0xab1f7b575600c4517a2e479e46e3af98a95ee84dd3f46824e02ff4618523fff5)
 <br>
-![]()<br>
+![transactionHash](https://github.com/wls503pl/Ethers/blob/main/EventFilter/img/transactionHash.png)<br>
+![transactionHash_logs](https://github.com/wls503pl/Ethers/blob/main/EventFilter/img/transactionHash_logs.png)<br>
 
 This transaction did one thing: transferred 2983.98 USDT from **binance14** (Binance hot wallet) to address 0x354de44bedba213d612e92d3248b899de17b0c58.
 
 View the event log information:
 <br>
-![]()<br>
+![USDTBalanceInExchange](https://github.com/wls503pl/Ethers/blob/main/EventFilter/img/USDTBalanceInExchange.png)<br>
 
 - **address**: USDT contract address
 - **topics[0]**: Event hash, keccak256("Transfer(address, address, uint256)")
@@ -94,3 +95,28 @@ contractUSDT.on(filterBinanceIn, (res) => {
   console.log(`${res.args[0]} -> ${res.args[1]} ${ethers.formatUnits(res.args[2], 6)}`)
 })
 ```
+<br>
+![USDTIntoExchange](https://github.com/wls503pl/Ethers/blob/main/EventFilter/img/USDTIntoExchange.png)
+
+5. Create Filter, listening Event of USDT transferred out from Binance account
+
+```
+// 3. Create Filter, Listening to Event USDT transferred out from Exchange
+let filterToBinanceOut = contractUSDT.filters.Transfer(accountBinance);
+console.log("\n3. Create Filter, Listening to Event USDT transferred out from Exchange")
+console.log("Filter Details: ")
+console.log(filterToBinanceOut);
+contractUSDT.on(filterToBinanceOut, (res) => {
+  console.log('--------- Listening to Event USDT transferred out from Exchange --------');
+  console.log(
+    `${res.args[0]} -> ${res.args[1]} ${ethers.formatUnits(res.args[2],6)}`
+)})
+```
+<br>
+![USDTOutOfExchange](https://github.com/wls503pl/Ethers/blob/main/EventFilter/img/USDTOutOfExchange.png)
+
+<hr>
+
+# Summarize
+
+We introduced the event filter and used it to monitor USDT transactions related to the Binance exchange hot wallet. You can use it to monitor any transaction you are interested in, find out what new transactions smart money has made, what new projects NFT **\"bigwigs\"** have rushed, etc.

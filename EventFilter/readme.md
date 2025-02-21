@@ -96,6 +96,7 @@ contractUSDT.on(filterBinanceIn, (res) => {
 })
 ```
 <br>
+
 ![USDTIntoExchange](https://github.com/wls503pl/Ethers/blob/main/EventFilter/img/USDTIntoExchange.png)
 
 5. Create Filter, listening Event of USDT transferred out from Binance account
@@ -113,6 +114,7 @@ contractUSDT.on(filterToBinanceOut, (res) => {
 )})
 ```
 <br>
+
 ![USDTOutOfExchange](https://github.com/wls503pl/Ethers/blob/main/EventFilter/img/USDTOutOfExchange.png)
 
 <hr>

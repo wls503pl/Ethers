@@ -26,7 +26,7 @@ console.log("The maximum safe integer in js: ", Number.MAX_SAFE_INTEGER)
 ```
 <br>
 
-![]()
+![bigNumber](https://github.com/wls503pl/Ethers/blob/main/BigIntAndUnitConversion/img/bigNumber.png)
 
 ## BigInt Calculation
 
@@ -48,7 +48,7 @@ console.log("If equalled: ", oneGwei == 1000000000n)
 
 In Ethereum, 1 ether is equal to 10^18 wei. Some commonly used units are listed below:
 <br>
-![]()<br>
+![generalUnit](https://github.com/wls503pl/Ethers/blob/main/BigIntAndUnitConversion/img/generalUnit.png)<br>
 
 In applications, we often convert values ​​between human-readable strings (in ether) and machine-readable numbers (in wei). For example, a wallet can specify balances (in ether) and gas prices (in gwei) for the user interface,
 but when sending a transaction, both must be converted to numbers in wei. ethers.js provides some functions to facilitate this kind of conversion.
@@ -73,7 +73,7 @@ console.log(ethers.formatEther(oneGwei));
 console.groupEnd();
 ```
 <br>
-![]()<br>
+![SmallToLargeNum](https://github.com/wls503pl/Ethers/blob/main/BigIntAndUnitConversion/img/SmallToLargeNum.png)<br>
 
 - parseUnit: Parse, convert large units to small units, such as \"ether -> wei\", which is useful for converting user input values ​​to values ​​in wei. In the parameter, the unit is filled with digits (number) or the specified unit (string).
 
@@ -102,4 +102,4 @@ console.log(ethers.parseUnits("1.0", 9).toString())
 console.groupEnd();
 ```
 <br>
-![]()
+![LargeToSmallNum](https://github.com/wls503pl/Ethers/blob/main/BigIntAndUnitConversion/img/LargeToSmallNum.png)
